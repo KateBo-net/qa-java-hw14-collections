@@ -3,8 +3,7 @@ package ru.netology;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class GameTest {
     Player player1 = new Player(1, "Sam", 25);
@@ -19,11 +18,11 @@ public class GameTest {
         game.register(player3);
         game.register(player2);
 
-        List<Player> expected = new ArrayList<>();
-        expected.add(player1);
-        expected.add(player3);
-        expected.add(player2);
-        List<Player> actual = game.getPlayers();
+        HashMap<String, Player> expected = new HashMap<>();
+        expected.put(player1.getName(), player1);
+        expected.put(player3.getName(), player3);
+        expected.put(player2.getName(), player2);
+        HashMap<String, Player> actual = game.getPlayers();
 
         Assertions.assertEquals(expected, actual);
     }
